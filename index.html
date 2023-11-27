@@ -147,7 +147,7 @@
             <form action="https://script.google.com/macros/s/AKfycbxHQefQKgU5bVNMaDdbp_oP8mge0U2UAcvx2Y9M0c8kOJxpuCfJUbimgESUCeKJrZ2blg/exec" method="POST">
                 <div class="form-group">
                     <label for="feedback">您对应用的意见或建议：</label>
-                    <textarea class="form-control" id="feedback" rows="3"></textarea>
+                    <textarea class="form-control" id="moreDetails" name="details" class="form-control" placeholder="您的反馈" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">提交反馈</button>
             </form>
@@ -172,7 +172,8 @@
 <script>
 	// track view 
 	window.onload = function() {
-    // Fetch the URL
+	console.log("hi")
+ // Fetch the URL
     fetch('https://script.google.com/macros/s/AKfycbxMdAmgo9_wsiUIU23pRZpeYuHqd50RdKukED3w1Q_fRmyuGrqQBEcavc-WxI-7PQQg8A/exec?view=3')
         .then(response => response.json()
 		
@@ -200,6 +201,6 @@
       });
 
       }, 30000);
-	  
+	  </script>
 </body>
 </html>
