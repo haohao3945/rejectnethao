@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拒绝内耗</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            margin-top: 30px;
+        }
+		.addBorder{
+			border:1px solid #007bff;
+			border-radius: 10px; /* Adjust the value to change the curvature */
+			margin-bottom:50px;
+			padding:15px;
+
+		}
+        h2 {
+            color: #007bff;
+        }
+        p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>拒绝内耗 App</h1>
+</header>
+<div class="container">
+    <!-- Part 1: App Introduction -->
+    <div class="addBorder">
+        <h2 class="mb-4">提醒你拒绝内耗</h2>
+		<ol>
+        <li>你永远无法掌控别人怎么看你，也无法掌控别人，所以你要做的，就是不断提高自己的价值贡献。</li>
+        <li>只有提升自己，打开你的选择权，才可以有底气，也不会一直内耗</li>
+		<li>焦虑就是害怕自己无法完成所有事情，无法成为好人，好员工，好xx，但是这往往只能带来更多的不自信，该发生的还是会发生。所以事情搞砸又如何，工作丢了又如何？最重要自己过的好，增加自己的价值，才可以带来更多的机会，优势，而不是吊死在一棵树上面！</li>
+		<li>一直改变环境无法解决焦虑，能解决焦虑的，只有思维，把一切当作学习，而不是dealine。和不断地提升自己的优势。</li>
+		</ol>
+	</div>
+
+    <!-- Part 2: User Growth Checklist -->
+    <div class="addBorder">
+        <h2 class="mt-5 mb-4">提升自我优势 - 自我成长 checklist:</h2>
+        <form>
+            <div class="form-group">
+                <label for="skill">长期来看，你想发展什么优势技能，让你可以有更多的做项目/就业的机会：：</label>
+                <input type="text" class="form-control" id="skill" placeholder="编程、写作、其他">
+            </div>
+            <div class="form-group">
+                <label for="confidence">让自己提高自信的方法：</label>
+                <textarea class="form-control" id="confidence" rows="3" placeholder="分享经验、定期反思"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="plan">这周你打算做哪3件事情，来帮你完成自我提升：</label>
+                <textarea class="form-control" id="plan" rows="3" placeholder="具体行动计划"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="network">你打算做什么，来增加你的人脉，失业后，你也可以迅速过活：</label>
+                <textarea class="form-control" id="network" rows="3" placeholder="主动接触的人群"></textarea>
+            </div>
+        </form>
+    </div
+	<!--Part 3 ： 复盘-->
+	<div class="container text-center custom-border addBorder">
+        <h2 class="mt-5 mb-4">自我提升：复盘</h1>
+        <p>提出正确的问题，快速帮助你解决关键问题。通过这个框架，你将了解下一步解决困难问题所需的步骤。</p><br><br>
+        <table class="table">
+            <thead>
+                <tr style="color: #007bff;">
+                    <th>事件</th>
+                    <th>结果</th>
+                    <th>你认为怎么样</th>
+                    <th>进展顺利的事情</th>
+                    <th>需要改进的事情</th>
+                    <th>即时行动计划</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="retrospectiveTable">
+                <tr style="font-style:italic;">
+                    <td>例如：项目进度不如预期</td>
+                    <td>导致项目截止日期延迟</td>
+                    <td>为项目设立目标的时侯太过于理想化了</td>
+                    <td>每天坚持有进度。有学习到新的东西</td>
+                    <td>改进对项目的期待和处理方式。具体为每3天一个复盘和容错期。同时需要暂时不看剧，确保项目有在推进</td>
+                    <td>1.3天复盘一次项目进度<br/>2.把看剧的20分钟加在做项目的时间，一个星期后观察结果.</td>
+                    <td><button class="btn btn-danger" onclick="deleteRow(this)">删除行</button></td>
+                </tr>
+                <tr>
+                    <td><textarea class="form-control"></textarea></td>
+                    <td><textarea class="form-control"></textarea></td>
+                    <td><textarea class="form-control"></textarea></td>
+                    <td><textarea class="form-control"></textarea></td>
+                    <td><textarea class="form-control"></textarea></td>
+                    <td><textarea class="form-control"></textarea></td>
+                    <td>
+                        <button class="btn btn-primary" onclick="confirmRow(this)">确认</button>
+                        <button class="btn btn-danger" onclick="deleteRow(this)">删除行</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="addRowBtn" class="btn btn-primary" onclick="addRow()">添加行</button>
+    </div>
+    <!-- Part 4: Feedback form & Video -->
+    <div class="row mt-4">
+        <div class="col-md-6 addBorder">
+            <h2>你的反馈</h2>
+            <form action="https://script.google.com/macros/s/AKfycbxHQefQKgU5bVNMaDdbp_oP8mge0U2UAcvx2Y9M0c8kOJxpuCfJUbimgESUCeKJrZ2blg/exec" method="POST">
+                <div class="form-group">
+                    <label for="feedback">您对应用的意见或建议：</label>
+                    <textarea class="form-control" id="feedback" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">提交反馈</button>
+            </form>
+        </div>
+        <div class="col-md-6 addBorder">
+            <h2 class="mb-4 mt-4 mt-md-0">每天提醒自己提升，拒绝内耗，<br>把app添加到主屏幕 -教程视频</h2>
+            <div class="video-container">
+                <!-- Placeholder video, replace with actual video link -->
+                <iframe src="https://www.youtube.com/embed/dTFaSVUlmA4?si=haZAEGNuYLF5ZXxc" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2023 拒绝内耗 应用. All rights reserved.
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+<script>
+	// track view 
+	window.onload = function() {
+    // Fetch the URL
+    fetch('https://script.google.com/macros/s/AKfycbxMdAmgo9_wsiUIU23pRZpeYuHqd50RdKukED3w1Q_fRmyuGrqQBEcavc-WxI-7PQQg8A/exec?view=3')
+        .then(response => response.json()
+		
+		)
+        .then(data => {
+            // Handle the data as needed
+            console.log(data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error fetching data:', error);
+        });
+		addAppToHomeScreen()
+	
+};
+
+  setTimeout(function () {
+    fetch('https://script.google.com/macros/s/AKfycbxMdAmgo9_wsiUIU23pRZpeYuHqd50RdKukED3w1Q_fRmyuGrqQBEcavc-WxI-7PQQg8A/exec?home=3')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+
+      }, 30000);
+	  
+function confirmRow(button) {
+			var row = button.parentNode.parentNode;
+			var textareas = row.getElementsByTagName("textarea");
+			var isEmpty = true;
+
+			for (var i = 0; i < textareas.length; i++) {
+				if (textareas[i].value.trim() !== "") {
+					isEmpty = false;
+					break;
+				}
+			}
+
+			if (isEmpty) {
+				alert("请填写行中的至少一个文本框");
+			} else {
+				console.log("textarea.length = ", textareas.length);
+
+				// Convert NodeList to array to avoid dynamic changes
+				var textareaArray = Array.from(textareas);
+
+				for (var i = 0; i < textareaArray.length; i++) {
+					// Add key listener for Enter key
+					textareaArray[i].addEventListener("keydown", function (event) {
+						if (event.key === "Enter") {
+							// Prevent default behavior (new line in textarea)
+							event.preventDefault();
+
+							// Append a line break to the value
+							this.value += "\n";
+						}
+					});
+
+					// Convert textarea content to HTML
+					textareaArray[i].outerHTML = "<p>" + textareaArray[i].value.replace(/\n/g, "<br>") + "</p>";
+					console.log("textarea", i + 1, "= ", textareaArray[i].value);
+				}
+				button.style.display = "none";
+			}
+		}
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.remove();
+        }
+
+        function addRow() {
+            var table = document.getElementById("retrospectiveTable");
+            var newRow = table.insertRow(table.rows.length);
+            var cells = [];
+
+            for (var i = 0; i < 6; i++) {
+                cells.push(newRow.insertCell(i));
+                cells[i].innerHTML = '<textarea class="form-control"></textarea>';
+            }
+
+            var confirmButton = document.createElement("button");
+            confirmButton.innerHTML = "确认";
+            confirmButton.className = "btn btn-primary";
+            confirmButton.onclick = function() {
+                confirmRow(confirmButton);
+            };
+
+            var deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "删除行";
+            deleteButton.className = "btn btn-danger";
+            deleteButton.onclick = function() {
+                deleteRow(deleteButton);
+            };
+
+            cells.push(newRow.insertCell(6));
+            cells[6].appendChild(confirmButton);
+            cells[6].appendChild(deleteButton);
+        }
+		
+</script>
+</body>
+</html>
