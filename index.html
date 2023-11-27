@@ -77,21 +77,21 @@
 <div class="container">
     <!-- Part 1: App Introduction -->
     <div class="addBorder">
-        <h2 class="mb-4">提醒你拒绝内耗</h2>
+        <h2 class="mb-4 text-center mx-auto">提醒你拒绝内耗</h2>
 		<ol>
-        <li>你永远无法掌控别人怎么看你，也无法掌控别人，所以你要做的，就是不断提高自己的价值贡献。</li>
-        <li>只有提升自己，打开你的选择权，才可以有底气，也不会一直内耗</li>
-		<li>焦虑就是害怕自己无法完成所有事情，无法成为好人，好员工，好xx，但是这往往只能带来更多的不自信，该发生的还是会发生。所以事情搞砸又如何，工作丢了又如何？最重要自己过的好，增加自己的价值，才可以带来更多的机会，优势，而不是吊死在一棵树上面！</li>
-		<li>一直改变环境无法解决焦虑，能解决焦虑的，只有思维，把一切当作学习，而不是dealine。和不断地提升自己的优势。</li>
+			<li class="mb-3">你永远无法掌控别人怎么看你，也无法掌控别人，所以你要做的，就是不断提高自己的价值贡献。</li>
+			<li class="mb-3">只有提升自己，打开你的选择权，才可以有底气，也不会一直内耗</li>
+			<li class="mb-3">焦虑就是害怕自己无法完成所有事情，无法成为好人，好员工，好xx，但是这往往只能带来更多的不自信，该发生的还是会发生。所以事情搞砸又如何，工作丢了又如何？最重要自己过的好，增加自己的价值，才可以带来更多的机会，优势，而不是吊死在一棵树上面！</li>
+			<li class="mb-3">一直改变环境无法解决焦虑，能解决焦虑的，只有思维，把一切当作学习，而不是dealine。然后不断地提升自己的优势。</li>
 		</ol>
 	</div>
 
     <!-- Part 2: User Growth Checklist -->
     <div class="addBorder">
-        <h2 class="mt-5 mb-4">提升自我优势 - 自我成长 checklist:</h2>
+        <h2 class="mt-5 mb-4 text-center mx-auto">提升自我优势 - 自我成长 checklist:</h2>
         <form>
             <div class="form-group">
-                <label for="skill">长期来看，你想发展什么优势技能，让你可以有更多的做项目/就业的机会：：</label>
+                <label for="skill">长期来看，你想发展什么优势技能，让你可以有更多的做项目/就业的机会：</label>
                 <input type="text" class="form-control" id="skill" placeholder="编程、写作、其他">
             </div>
             <div class="form-group">
@@ -109,47 +109,37 @@
         </form>
     </div
 	<!--Part 3 ： 复盘-->
-	<div class="container text-center custom-border addBorder">
-        <h2 class="mt-5 mb-4">自我提升：复盘</h1>
-        <p>提出正确的问题，快速帮助你解决关键问题。通过这个框架，你将了解下一步解决困难问题所需的步骤。</p><br><br>
-        <table class="table">
-            <thead>
-                <tr style="color: #007bff;">
-                    <th>事件</th>
-                    <th>结果</th>
-                    <th>你认为怎么样</th>
-                    <th>进展顺利的事情</th>
-                    <th>需要改进的事情</th>
-                    <th>即时行动计划</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="retrospectiveTable">
-                <tr style="font-style:italic;">
-                    <td>例如：项目进度不如预期</td>
-                    <td>导致项目截止日期延迟</td>
-                    <td>为项目设立目标的时侯太过于理想化了</td>
-                    <td>每天坚持有进度。有学习到新的东西</td>
-                    <td>改进对项目的期待和处理方式。具体为每3天一个复盘和容错期。同时需要暂时不看剧，确保项目有在推进</td>
-                    <td>1.3天复盘一次项目进度<br/>2.把看剧的20分钟加在做项目的时间，一个星期后观察结果.</td>
-                    <td><button class="btn btn-danger" onclick="deleteRow(this)">删除行</button></td>
-                </tr>
-                <tr>
-                    <td><textarea class="form-control"></textarea></td>
-                    <td><textarea class="form-control"></textarea></td>
-                    <td><textarea class="form-control"></textarea></td>
-                    <td><textarea class="form-control"></textarea></td>
-                    <td><textarea class="form-control"></textarea></td>
-                    <td><textarea class="form-control"></textarea></td>
-                    <td>
-                        <button class="btn btn-primary" onclick="confirmRow(this)">确认</button>
-                        <button class="btn btn-danger" onclick="deleteRow(this)">删除行</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button id="addRowBtn" class="btn btn-primary" onclick="addRow()">添加行</button>
-    </div>
+	<div class="container custom-border addBorder">
+		<h2 class="mt-5 mb-4 text-center mx-auto">自我提升：复盘</h2>
+		<p>提出正确的问题，快速帮助你解决关键问题。通过这个框架，你将了解下一步解决困难问题所需的步骤。</p><br><br>
+		<form id="retrospectiveForm">
+			<div class="form-group">
+				<label for="event">想要调整的事件/发生的事件</label>
+				<input type="text" class="form-control" id="event" name="event" placeholder="例如：项目进度不如预期">
+			</div>
+			<div class="form-group">
+				<label for="result">结果</label>
+				<input type="text" class="form-control" id="result" name="result" placeholder="导致项目截止日期延迟">
+			</div>
+			<div class="form-group">
+				<label for="opinion">你认为怎么样</label>
+				<textarea class="form-control" id="opinion" name="opinion" rows="3" placeholder="为项目设立目标的时候太过于理想化了"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="progress">进展顺利的事情</label>
+				<textarea class="form-control" id="progress" name="progress" rows="3" placeholder="每天坚持有进展。有学习到新的东西"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="improvements">需要改进的事情</label>
+				<textarea class="form-control" id="improvements" name="improvements" rows="3" placeholder="改进对项目的期待和处理方式。具体为每3天一个复盘和容错期。同时需要暂时不看剧，确保项目有在推进"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="actionPlan">即时行动计划</label>
+				<textarea class="form-control" id="actionPlan" name="actionPlan" rows="3" placeholder="1. 3天复盘一次项目进度&#10;2. 把看剧的20分钟加在做项目的时间，一个星期后观察结果."></textarea>
+			</div>
+
+		</form>
+	</div>
     <!-- Part 4: Feedback form & Video -->
     <div class="row mt-4">
         <div class="col-md-6 addBorder">
@@ -211,79 +201,5 @@
 
       }, 30000);
 	  
-function confirmRow(button) {
-			var row = button.parentNode.parentNode;
-			var textareas = row.getElementsByTagName("textarea");
-			var isEmpty = true;
-
-			for (var i = 0; i < textareas.length; i++) {
-				if (textareas[i].value.trim() !== "") {
-					isEmpty = false;
-					break;
-				}
-			}
-
-			if (isEmpty) {
-				alert("请填写行中的至少一个文本框");
-			} else {
-				console.log("textarea.length = ", textareas.length);
-
-				// Convert NodeList to array to avoid dynamic changes
-				var textareaArray = Array.from(textareas);
-
-				for (var i = 0; i < textareaArray.length; i++) {
-					// Add key listener for Enter key
-					textareaArray[i].addEventListener("keydown", function (event) {
-						if (event.key === "Enter") {
-							// Prevent default behavior (new line in textarea)
-							event.preventDefault();
-
-							// Append a line break to the value
-							this.value += "\n";
-						}
-					});
-
-					// Convert textarea content to HTML
-					textareaArray[i].outerHTML = "<p>" + textareaArray[i].value.replace(/\n/g, "<br>") + "</p>";
-					console.log("textarea", i + 1, "= ", textareaArray[i].value);
-				}
-				button.style.display = "none";
-			}
-		}
-        function deleteRow(button) {
-            var row = button.parentNode.parentNode;
-            row.remove();
-        }
-
-        function addRow() {
-            var table = document.getElementById("retrospectiveTable");
-            var newRow = table.insertRow(table.rows.length);
-            var cells = [];
-
-            for (var i = 0; i < 6; i++) {
-                cells.push(newRow.insertCell(i));
-                cells[i].innerHTML = '<textarea class="form-control"></textarea>';
-            }
-
-            var confirmButton = document.createElement("button");
-            confirmButton.innerHTML = "确认";
-            confirmButton.className = "btn btn-primary";
-            confirmButton.onclick = function() {
-                confirmRow(confirmButton);
-            };
-
-            var deleteButton = document.createElement("button");
-            deleteButton.innerHTML = "删除行";
-            deleteButton.className = "btn btn-danger";
-            deleteButton.onclick = function() {
-                deleteRow(deleteButton);
-            };
-
-            cells.push(newRow.insertCell(6));
-            cells[6].appendChild(confirmButton);
-            cells[6].appendChild(deleteButton);
-        }
-		
-</script>
 </body>
 </html>
